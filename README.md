@@ -1,175 +1,260 @@
 # 🚀 Spark ETL Pipeline
 
-Scalable ETL pipeline built using Apache Spark (PySpark) integrating Data Engineering, Machine Learning, and DevOps practices.
+Scalable end-to-end ETL platform built using Apache Spark (PySpark), integrating Data Engineering, Machine Learning, and DevOps practices.
 
 ---
 
-## Overview
+# 📌 Overview
 
-This repository demonstrates an end-to-end engineering platform covering:
+This project simulates a production-grade data platform covering:
 
-- Data Ingestion and ETL Processing
-- Machine Learning Pipelines
-- Infrastructure and CI/CD Automation
-- Workflow Orchestration and Monitoring
-
----
-
-# Team Structure Update
-
-Project folders are organized according to role ownership:
-
-| Team Member | Role | Ownership |
-|------------|------|-----------|
-| Sudheer | Data Engineer | ETL, Spark, Pipelines |
-| Dinesh | ML Engineer | Feature Engineering, Training |
-| Dilip | DevOps Engineer | Infrastructure, CI/CD |
-
-Please use respective directories for development and contributions.
+- Data ingestion and transformation
+- Distributed ETL processing
+- Machine Learning pipelines
+- Workflow orchestration
+- Infrastructure automation
+- CI/CD and monitoring
 
 ---
 
-# Repository Structure
+# 👥 Team Structure
+
+## Core Contributors
+
+| Developer | Role | Responsibilities |
+|----------|------|-----------------|
+| Sudheer | Data Engineer | ETL, Spark pipelines, orchestration |
+| Dinesh | ML Engineer | Features, training, inference |
+| Dilip | DevOps Engineer | Infrastructure, CI/CD, deployment |
+
+---
+
+# 🧠 Role Responsibilities
+
+## Sudheer — Data Engineering
+Owns:
 
 ```text
-spark-etl-pipeline/
-│
-├── README.md
-├── .gitignore
-├── requirements.txt
-├── docker-compose.yml
-├── Dockerfile
-│
-├── docs/                       # Architecture diagrams design docs runbooks
-│   ├── architecture/
-│   ├── runbooks/
-│   └── diagrams/
-│
-├── configs/                    # Environment configs
-│   ├── dev.yaml
-│   ├── qa.yaml
-│   └── prod.yaml
-│
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── reference/
-│
-├── src/
-│   ├── data_engineering/        # Sudheer ownership
-│   │   ├── ingestion/
-│   │   │   ├── batch_ingest.py
-│   │   │   └── stream_ingest.py
-│   │   ├── transformations/
-│   │   │   ├── cleaning.py
-│   │   │   └── business_rules.py
-│   │   ├── pipelines/
-│   │   │   └── etl_pipeline.py
-│   │   └── utils/
-│   │
-│   ├── ml_engineering/          # Dinesh ownership
-│   │   ├── feature_engineering/
-│   │   ├── training/
-│   │   ├── inference/
-│   │   └── models/
-│   │
-│   └── shared/
-│       ├── logging/
-│       └── utilities/
-│
-├── orchestration/
-│   ├── airflow_dags/
-│   └── workflows/
-│
-├── infra/                       # Dilip ownership
-│   ├── terraform/
-│   ├── kubernetes/
-│   └── scripts/
-│
-├── .github/
-│   └── workflows/
-│       ├── ci.yml
-│       └── deploy.yml
-│
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── data_quality/
-│
-├── monitoring/
-│   ├── alerts/
-│   └── metrics/
-│
-├── notebooks/                   # Planned enhancement
-├── schemas/                     # Planned enhancement
-└── scripts/                     # Planned enhancement
+src/data_engineering/
+data/
+configs/
+orchestration/
+tests/data_quality/
 ```
 
----
-
-# Role Responsibilities
-
-## Data Engineering
-Responsible for:
-- Data ingestion
-- Transformations
-- Spark ETL pipelines
-- Workflow orchestration
+Responsibilities:
+- Batch ingestion
+- Streaming ingestion
+- Data transformations
+- ETL pipeline development
+- Spark optimization
 - Data quality validations
 
+Tech:
+- Python
+- PySpark
+- SQL
+- :contentReference[oaicite:0]{index=0}
+- :contentReference[oaicite:1]{index=1}
+
 ---
 
-## Machine Learning
-Responsible for:
+## Dinesh — Machine Learning Engineering
+Owns:
+
+```text
+src/ml_engineering/
+```
+
+Responsibilities:
 - Feature engineering
 - Model training
 - Inference pipelines
 - Model lifecycle management
 
+Modules:
+```text
+feature_engineering/
+training/
+inference/
+models/
+```
+
 ---
 
-## DevOps
-Responsible for:
+## Dilip — DevOps Engineering
+Owns:
+
+```text
+infra/
+monitoring/
+.github/workflows/
+scripts/
+```
+
+Responsibilities:
 - Infrastructure as Code
-- Docker and containerization
-- CI/CD automation
-- Monitoring and deployments
+- Containerization
+- Deployment automation
+- Monitoring
+- CI/CD pipelines
+
+Tech:
+- Docker
+- Kubernetes
+- :contentReference[oaicite:2]{index=2}
+- :contentReference[oaicite:3]{index=3} Actions
 
 ---
 
-# Branching Strategy
+# 📂 Repository Structure
+
+```text
+spark-etl-pipeline/
+│
+├── docs/              # architecture and runbooks
+├── configs/           # environment configs
+├── data/              # raw processed reference data
+│
+├── src/
+│   ├── data_engineering/
+│   ├── ml_engineering/
+│   └── shared/
+│
+├── orchestration/
+├── infra/
+├── monitoring/
+├── tests/
+│
+├── notebooks/
+├── schemas/
+└── scripts/
+```
+
+---
+
+# ⚙️ Project Modules
+
+## Data Pipeline Flow
+
+```text
+Raw Data
+  ↓
+Ingestion
+  ↓
+Transformations
+  ↓
+ETL Pipeline
+  ↓
+Processed Data
+  ↓
+ML Feature Pipelines
+  ↓
+Model Inference
+```
+
+---
+
+# 🧪 Testing Strategy
+
+```text
+tests/
+├── unit/
+├── integration/
+└── data_quality/
+```
+
+Includes:
+- Unit tests
+- Pipeline integration tests
+- Data validation checks
+
+---
+
+# 📈 Monitoring
+
+```text
+monitoring/
+├── alerts/
+└── metrics/
+```
+
+Covers:
+- Pipeline alerts
+- Metrics collection
+- Operational monitoring
+
+---
+
+# 🌱 Branching Strategy
 
 ```text
 main
 develop
+
 feature/data-ingestion
+feature/transformations
 feature/ml-training
 feature/devops-cicd
+
 hotfix/*
 ```
 
 ---
 
-# Planned Enhancements
-To be added incrementally:
+# 🚀 Getting Started
 
-- notebooks/  # experimentation
-- schemas/    # schema contracts
-- scripts/    # helper automation
+Clone repository:
+
+```bash
+git clone https://github.com/sudheer-tech-labs/spark-etl-pipeline.git
+cd spark-etl-pipeline
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run ETL pipeline:
+
+```bash
+python src/data_engineering/pipelines/etl_pipeline.py
+```
 
 ---
 
-# Tech Stack
+# 🛠 Tech Stack
 
 - Python
-- PySpark / Apache Spark (:contentReference[oaicite:0]{index=0})
-- :contentReference[oaicite:1]{index=1}
+- PySpark
+- SQL
+- Apache Spark
+- Apache Airflow
 - Docker
-- :contentReference[oaicite:2]{index=2}
 - Kubernetes
-- GitHub Actions in :contentReference[oaicite:3]{index=3}
+- Terraform
+- GitHub Actions
 
 ---
 
-## Status
-🚧 Under Active Development
+# 📌 Planned Enhancements
+Upcoming additions:
+
+- Advanced Spark optimizations
+- Real-time streaming pipeline
+- Model deployment APIs
+- Infrastructure automation expansion
+
+---
+
+# 📄 Status
+
+🚧 Active Development
+
+Building a collaborative platform integrating:
+
+✔ Data Engineering  
+✔ Machine Learning  
+✔ DevOps
